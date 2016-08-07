@@ -1,0 +1,21 @@
+<nav>
+    <a routerLink="/" routerLinkActive="active">Continue Story</a>
+</nav>
+<h1>Stories</h1>
+<ul>
+    <li *ngFor="let story of activeStories | async">
+        {{story.title}}
+        <input type="text" #updateStatus [value]="story.status"/>
+        <button (click)="updateStory(story.$key, updateStatus.value)">Update</button>
+    </li>
+</ul>
+<input type="text" #newstory/>
+<button (click)="addStory(newstory.value)">Add</button>
+
+<h1>Old Stories</h1>
+
+<ul>
+    <li *ngFor="let story of oldStories | async">
+        {{story.title}} - {{story.status}}
+    </li>
+</ul>

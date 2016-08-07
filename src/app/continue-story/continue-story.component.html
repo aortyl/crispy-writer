@@ -1,0 +1,11 @@
+<nav>
+    <a routerLink="/new-story" routerLinkActive="active">New Story</a>
+</nav>
+<h1 *ngIf="selectedStory">{{selectedStory.title}}</h1>
+<div *ngIf="prevSection">
+    {{prevSection.text}}
+    <h2>Chapter {{prevSection.index + 1}}</h2>
+</div>
+<h2 *ngIf="!prevSection">Chapter 1</h2>
+<textarea #newsection></textarea>
+<button (click)="saveSection(newsection.value)">Add</button>
